@@ -29,7 +29,6 @@ import "github.com/jmhobbs/go-enforcescript/ast"
   block ast.Block
 }
 
-%token <identifier> CLASS
 %token <identifier> IDENTIFIER
 
 %token <stringValue> STRING COMMENT INLINE_COMMENT

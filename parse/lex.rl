@@ -27,11 +27,13 @@ func (lex *lexer) Lex(out *yySymType) int {
     tok := 0
     %%{ 
         main := |*
-            'class '[a-zA-Z0-9]+ => {
-              tok = CLASS;
-              out.identifier = string(lex.data[lex.ts+6:lex.te]);
-              fbreak;
-            };
+            'class' => { tok = TOK_CLASS; fbreak; };
+            'void' => { tok = TYPE_VOID; fbreak; };
+            'int' => { tok = TYPE_INTEGER; fbreak; };
+            'float' => { tok = TYPE_FLOAT; fbreak; };
+            'bool' => { tok = TYPE_BOOL; fbreak; };
+            'string' => { tok = TYPE_STRING; fbreak; };
+            'vector' => { tok = TYPE_VECTOR; fbreak; };
             '(' => { tok = TOK_PAREN_OPEN; fbreak;};
             ')' => { tok = TOK_PAREN_CLOSE; fbreak;};
             '"'^'"'*?'"' => {
@@ -43,12 +45,6 @@ func (lex *lexer) Lex(out *yySymType) int {
               tok = STRING;
               fbreak;
             };
-            'void' => { tok = TYPE_VOID; fbreak; };
-            'int' => { tok = TYPE_INTEGER; fbreak; };
-            'float' => { tok = TYPE_FLOAT; fbreak; };
-            'bool' => { tok = TYPE_BOOL; fbreak; };
-            'string' => { tok = TYPE_STRING; fbreak; };
-            'vector' => { tok = TYPE_VECTOR; fbreak; };
             [a-zA-Z0-9_]+ => {
               out.identifier = string(lex.data[lex.ts:lex.te]);
               tok = IDENTIFIER;

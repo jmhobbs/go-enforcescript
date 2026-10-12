@@ -14,9 +14,13 @@ func Test_ParseSmokeTest(t *testing.T) {
 {
 }
 
-void Hello2()
+int Hello2()
 {
-}`)
+}
+
+class Hello3 {
+}
+`)
 
 	output, err := parse.Parse(input, false)
 	require.NoError(t, err)
@@ -33,9 +37,15 @@ void Hello2()
 					},
 				},
 				ast.Function{
-					ReturnType: ast.TypeVoid,
+					ReturnType: ast.TypeInteger,
 					Identifier: "Hello2",
 					Arguments:  []ast.Argument{},
+					Body: ast.Block{
+						Statements: []ast.Statement{},
+					},
+				},
+				ast.Class{
+					Identifier: "Hello3",
 					Body: ast.Block{
 						Statements: []ast.Statement{},
 					},

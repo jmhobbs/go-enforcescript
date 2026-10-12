@@ -55,7 +55,6 @@ const TOK_COMMA = 57367
 const TOK_COLON = 57368
 const COMMENT = 57369
 const INLINE_COMMENT = 57370
-const CLASS = 57371
 
 var yyToknames = [...]string{
 	"$end",
@@ -86,7 +85,6 @@ var yyToknames = [...]string{
 	"TOK_COLON",
 	"COMMENT",
 	"INLINE_COMMENT",
-	"CLASS",
 }
 
 var yyStatenames = [...]string{}
@@ -95,7 +93,7 @@ const yyEofCode = 1
 const yyErrCode = 2
 const yyInitialStackSize = 16
 
-//line cpp.y:133
+//line cpp.y:132
 
 //line yacctab:1
 var yyExca = [...]int8{
@@ -153,7 +151,7 @@ var yyTok1 = [...]int8{
 var yyTok2 = [...]int8{
 	2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 	12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-	22, 23, 24, 25, 26, 27, 28, 29,
+	22, 23, 24, 25, 26, 27, 28,
 }
 
 var yyTok3 = [...]int8{
@@ -499,7 +497,7 @@ yydefault:
 
 	case 1:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:53
+//line cpp.y:52
 		{
 			file = ast.File{
 				Entries: yyDollar[1].csOrFs,
@@ -507,31 +505,31 @@ yydefault:
 		}
 	case 2:
 		yyDollar = yyS[yypt-2 : yypt+1]
-//line cpp.y:61
+//line cpp.y:60
 		{
 			yyVAL.csOrFs = append(yyDollar[1].csOrFs, yyDollar[2].cOrF)
 		}
 	case 3:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:64
+//line cpp.y:63
 		{
 			yyVAL.csOrFs = []ast.ClassOrFunction{yyDollar[1].cOrF}
 		}
 	case 4:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:70
+//line cpp.y:69
 		{
 			yyVAL.cOrF = yyDollar[1].cOrF
 		}
 	case 5:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:73
+//line cpp.y:72
 		{
 			yyVAL.cOrF = yyDollar[1].cOrF
 		}
 	case 6:
 		yyDollar = yyS[yypt-3 : yypt+1]
-//line cpp.y:79
+//line cpp.y:78
 		{
 			yyVAL.cOrF = ast.Class{
 				Identifier: yyDollar[2].identifier,
@@ -540,7 +538,7 @@ yydefault:
 		}
 	case 7:
 		yyDollar = yyS[yypt-4 : yypt+1]
-//line cpp.y:88
+//line cpp.y:87
 		{
 			yyVAL.cOrF = ast.Function{
 				ReturnType: yyDollar[1].variableType,
@@ -551,49 +549,49 @@ yydefault:
 		}
 	case 8:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:99
+//line cpp.y:98
 		{
 			yyVAL.variableType = ast.TypeVoid
 		}
 	case 9:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:102
+//line cpp.y:101
 		{
 			yyVAL.variableType = ast.TypeBool
 		}
 	case 10:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:105
+//line cpp.y:104
 		{
 			yyVAL.variableType = ast.TypeInteger
 		}
 	case 11:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:108
+//line cpp.y:107
 		{
 			yyVAL.variableType = ast.TypeFloat
 		}
 	case 12:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:111
+//line cpp.y:110
 		{
 			yyVAL.variableType = ast.TypeString
 		}
 	case 13:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line cpp.y:114
+//line cpp.y:113
 		{
 			yyVAL.variableType = ast.TypeVector
 		}
 	case 14:
 		yyDollar = yyS[yypt-2 : yypt+1]
-//line cpp.y:120
+//line cpp.y:119
 		{
 			yyVAL.args = []ast.Argument{}
 		}
 	case 15:
 		yyDollar = yyS[yypt-2 : yypt+1]
-//line cpp.y:126
+//line cpp.y:125
 		{
 			yyVAL.block = ast.Block{
 				Statements: []ast.Statement{},
