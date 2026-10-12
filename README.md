@@ -1,6 +1,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/jmhobbs/go-enforcescript.svg)](https://pkg.go.dev/github.com/jmhobbs/go-enforcescript)
 [![Lint & Test](https://github.com/jmhobbs/go-enforcescript/actions/workflows/lint-and-test.yml/badge.svg)](https://github.com/jmhobbs/go-enforcescript/actions/workflows/lint-and-test.yml)
 [![codecov](https://codecov.io/gh/jmhobbs/go-enforcescript/graph/badge.svg?token=xzmT70EI6d)](https://codecov.io/gh/jmhobbs/go-enforcescript)
+[![No AI contributions](https://no.botsp.lease/badge.svg)](https://no.botsp.lease/)
 
 # go-enforcescript
 
